@@ -1,0 +1,19 @@
+{
+  "service": "CREATOR",
+  "cspDomains": {
+    "connect-src": [
+      "wss://*.zohopublic.com",
+      "https://*.zoho.com",
+      "https://*.zohopublic.com",
+      "https://js.zohostatic.com",
+      "https://cesium.com",
+      "https://assets.cesium.com",
+      "https://assets.ion.cesium.com",  
+      "https://api.cesium.com",
+      "https://ion.cesium.com",
+      "https://127.0.0.1:5000"
+    ]
+  },
+  "config": []
+}
+
