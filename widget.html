@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India and New Jersey Overlay with Cesium</title>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.128/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        #cesiumContainer {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+  
+
+    <div id="cesiumContainer"></div>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.128/Build/Cesium/Cesium.js"></script>
+    <script>
+        // Set the Cesium Ion default access token
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0M2ZjODE0NC1jN2ZmLTQ4MjgtYWYyNy01MzRjMjBkOGEwNDAiLCJpZCI6MjcxOTA3LCJpYXQiOjE3MzkxNzgyNjd9.4tq6I8dMlMO4jdzCmPsua7tByqaBMQZBpkYU4_Z_c5A';
+
+        // Initialize the Cesium Viewer
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrain: Cesium.Terrain.fromWorldTerrain(),
+            shouldAnimate: true,
+        });
+        // Add Cesium OSM Buildings, a global 3D buildings layer.
+        async function addOsmBuildings() {
+            try {
+                const buildingTileset = await Cesium.createOsmBuildingsAsync();
+                viewer.scene.primitives.add(buildingTileset);
+                console.log('OSM Buildings loaded successfully.', buildingTileset);
+            } catch (error) {
+                console.error('Error loading OSM Buildings:', error);
+            }
+        }
+
+        // Call the function to add OSM Buildings
+        addOsmBuildings();
+
+        
+    </script>
+</body>
+
+</html> 
+
+
+ 
+
+
